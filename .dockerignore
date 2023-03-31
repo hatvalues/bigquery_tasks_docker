@@ -1,0 +1,11 @@
+*/env*
+*/venv*
+*/temp*
+archive
+logs/*
+**/*.pickle
+.gitignore
+
+# prevent file locks if RStudio open
+.Rproj.user
+*.R

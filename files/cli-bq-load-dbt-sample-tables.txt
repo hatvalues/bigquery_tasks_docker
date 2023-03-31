@@ -1,0 +1,27 @@
+bq --location=europe-west3 load ^
+--service_account_credential_file C:\Users\Crutt\OneDrive\Documents\hatvalues_repo\keys\hatvalues-sandbox-f3d70d55fe44.json ^
+--replace=true ^
+--source_format=CSV ^
+--skip_leading_rows=1 ^
+hatvalues-sandbox:jaffle_shop.customers ^
+C:\Users\Crutt\OneDrive\Documents\hatvalues_repo\bucket_tasks_docker\files\dbt-samples\customers.csv ^
+ID:INT64,FIRST_NAME:STRING,LAST_NAME:STRING
+
+bq --location=europe-west3 load ^
+--service_account_credential_file C:\Users\Crutt\OneDrive\Documents\hatvalues_repo\keys\hatvalues-sandbox-f3d70d55fe44.json ^
+--replace=true ^
+--source_format=CSV ^
+--skip_leading_rows=1 ^
+hatvalues-sandbox:jaffle_shop.orders ^
+C:\Users\Crutt\OneDrive\Documents\hatvalues_repo\bucket_tasks_docker\files\dbt-samples\orders.csv ^
+ID:INT64,USER_ID:INT64,ORDER_DATE:DATE,STATUS:STRING,_etl_loaded_at:DATETIME
+
+bq --location=europe-west3 load ^
+--service_account_credential_file C:\Users\Crutt\OneDrive\Documents\hatvalues_repo\keys\hatvalues-sandbox-f3d70d55fe44.json ^
+--replace=true ^
+--source_format=CSV ^
+--skip_leading_rows=1 ^
+hatvalues-sandbox:stripe.payments ^
+C:\Users\Crutt\OneDrive\Documents\hatvalues_repo\bucket_tasks_docker\files\dbt-samples\payments.csv ^
+id:INT64,orderid:INT64,paymentmethod:STRING,status:STRING,amount:INT64,created:DATE,_batched_at:DATETIME
+
