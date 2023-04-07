@@ -8,7 +8,9 @@ RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tm
 RUN mkdir -p /usr/local/gcloud \
   && tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz \
   && /usr/local/gcloud/google-cloud-sdk/install.sh
+
 ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
+ENV PYTHONPATH $PYTHONPATH:/usr/src/app/src:/usr/src/app:/usr/src
 
 # python reqs
 WORKDIR /usr/src/app

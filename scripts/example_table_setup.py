@@ -1,5 +1,5 @@
 from google.cloud import bigquery
-from bq_connection import create_replace_table
+from src.common.table_utilities import create_overwrite_table
 
 predicts_table = "predictive_analytics"
     
@@ -37,16 +37,17 @@ first_last_events_schema = [
     bigquery.SchemaField("latest_event_date", "DATETIME", mode="REQUIRED")
 ]
 
-create_replace_table(
+
+create_overwrite_table(
     predicts_table, predicts_schema,
     dataset_name="analytics",
-    replace=False,
+    overwrite_existing=False,
     partition={
         "field_name": "predict_date",
         "scheme": "day"
     }
 )
 
-create_replace_table(
+create_overwrite_table(
     first_last_events_table, first_last_events_schema,
 )
