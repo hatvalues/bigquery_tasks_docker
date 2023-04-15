@@ -24,8 +24,8 @@ sudo docker run -it --rm --name bqtasks \
   --env GOOGLE_APPLICATION_CREDENTIALS=/credentials.json \
   --env LOG_LOCATION=logs \
   --volume "$(pwd)":/usr/src/app \
-  --volume "$(pwd)/logs":/tmp \
-  --volume "$(pwd)/data":/usr/src/app/data \
+  --volume "$(pwd)/logs":/usr/src/app/logs \
+  --volume "$(pwd)/files":/usr/src/app/files \
   bqtasks:latest
 
 # WINDOWS
@@ -39,7 +39,8 @@ docker run -it --rm --name bqtasks ^
 --env GOOGLE_APPLICATION_CREDENTIALS=/credentials.json ^
 --env LOG_LOCATION=logs ^
 --volume %CD%:/usr/src/app ^
---volume %CD%/logs:/tmp ^
---volume %CD%/data:/usr/src/app/data ^
+--volume %CD%/logs:/usr/src/app/logs ^
+--volume %CD%/files:/usr/src/app/files ^
 bqtasks:latest
+
 
